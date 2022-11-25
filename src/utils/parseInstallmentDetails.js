@@ -7,7 +7,6 @@ export default function parseInstallmentDetails(
   const installmentValue = Math
     .floor((Number(paymentAmount) / Number(numberOfInstallments)) * 100) / 100;
   
-  // ^ Código consultado na seguinte fonte: https://tutorial.eyehunts.com/js/javascript-format-number-2-decimals-without-rounding-example-code/
   
   const installmentDetails = {
     dates: [firstInstallmentDate],

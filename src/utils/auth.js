@@ -15,5 +15,3 @@ export default function isAuthenticated() {
 
   return true;
 }
-
-// código inspirado na seguinte fonte: https://stackoverflow.com/questions/51292406/check-if-token-expired-using-this-jwt-library

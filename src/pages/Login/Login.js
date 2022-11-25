@@ -17,7 +17,6 @@ function Login() {
 
   async function makeLogin() {
     const validateEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    // ^ Regex extraído da seguinte fonte: https://stackoverflow.com/questions/46155/how-can-i-validate-an-email-address-in-javascript
 
     function validatePassword(password) {
       if (password.length < 8 || password === password.toLowerCase()) {
@@ -46,7 +45,7 @@ function Login() {
     } = await fetchApi('https://odonteo-backend.herokuapp.com/login', options);
     
     if (apiMessage === 'Login efetuado com sucesso!') {
-      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('user', JSON.stringify(user)); 
       localStorage.setItem('token', JSON.stringify(token));
       navigate('/');
     } else {
@@ -55,16 +54,17 @@ function Login() {
   }
 
   return (
-    <main>
+    <main data-testid='login-page'>
       { message.show &&
         <Message addClass={message.status}>
           {message.text}
         </Message>
       }
       <form>
-        <label htmlFor='email'>
+        <label htmlFor='email' >
           Email:
           <input
+            data-testid='email-test-id'
             className='form-input'
             id='email'
             name='email'
@@ -75,6 +75,7 @@ function Login() {
         <label htmlFor='password'>
           Senha:
           <input
+            data-testid="password-test-id"
             className='form-input'
             id='password'
             name='password'
